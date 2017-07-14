@@ -29,12 +29,12 @@ class search:
         phone_parsed = parsed['data'][0]['phones'][0]
         address_parsed = parsed['data'][0]['addresses'][0]
 
-        """ Truecaller id """
         self.id = basic['id']
-        """ Truecaller name """
+        """ Truecaller id """
         self.name = basic['name']
-        """ Truecaller score """
+        """ Truecaller name """
         self.score = basic['score']
+        """ Truecaller score """
         self.access = basic['access']
         self.enhanced = basic['enhanced']
         self.internet_address = basic['internetAddresses']
