@@ -5,8 +5,8 @@ class search:
     """ Return a new search instance given a phone number.
 
     Attributes:
-        ``- id                  The truecaller id of the user.``
-        - name                The name of the owner of the phone number.
+        - ``id                  The truecaller id of the user.``
+        - ``name                The name of the owner of the phone number.``
         - score               The score of the user.
         - access              The public accessibility state of the user.
         - enhanced            The enhanced state of the user.
