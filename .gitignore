@@ -2,3 +2,4 @@
 truecaller_unofficial_api.egg-info/
 build/
 dist/
+docs/_build/
