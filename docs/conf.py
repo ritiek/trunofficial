@@ -22,7 +22,7 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(1, os.path.abspath('..'))
 
-from turecaller_unofficial_api import __version__
+from truecaller_unofficial_api import __version__
 
 # -- General configuration ------------------------------------------------
 
