@@ -6,7 +6,7 @@ A basic example that shows this library in action.
 
 Import the module
 
-    >>> import truecaller_unofficial as tr
+    >>> import truecaller_unofficial_api as tr
 
 Search for a phone number
 
