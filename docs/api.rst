@@ -1,5 +1,5 @@
-truecaller-unofficial-api API
-=============================
+API
+===
 
 .. automodule:: truecaller_unofficial_api
     :members:
