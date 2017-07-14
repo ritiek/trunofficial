@@ -1,47 +1,30 @@
-truecaller-unofficial-api
-=========================
+truecaller-unofficial-api Documentation
+=======================================
 
-Unofficial API to the Truecaller phone number search.
+:Version: v0.1.0
+:Author: Ritiek Malhotra
+:Contact: ritiekmalhotra123@gmail.com
+:License (code): :ref:`MIT license <license>`
+:License (docs): This document was placed in the public domain.
 
-Usage Examples
+Contents
+========
 
-    import truecaller_unofficial as tr
+.. toctree::
+   :maxdepth: 3
 
-    human = tr.search('<phone number>')
-    print(human.name)
+   intro
+   installation
+   usage
+   api
 
-    mobile = human.phone
-    print(mobile.phone)
-    print(mobile.countrycode)
-    print(mobile.carrier)
+   license
 
-    house = human.address
-    print(house.city)
-    print(house.timezone)
+Indices and tables
+==================
 
-Installation
-------------
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
-Install truecaller-unofficial-api by running:
-
-    pip install truecaller-unofficial-api
-
-or if you like to live on the bleeding edge:
-
-    python setup.py install
-
-Contribute
-----------
-
-- Issue Tracker: https://github.com/ritiek/truecaller-unofficial-api/issues
-- Source Code: https://github.com/ritiek/truecaller-unofficial-api
-
-Support
--------
-
-If you are having issues, please let us know.
-
-License
--------
-
-MIT
+.. include:: global.rst
