@@ -17,9 +17,7 @@ class search:
         provider            The provider of the phone number.
         trace               The trace of the user.
         sourcestats         The source stats of the user.
-
     """
-
     def __init__(self, number):
         URL = 'https://search5.truecaller.com/v2/search?'
 
@@ -74,7 +72,6 @@ class phone:
         spamtype            The spam type of the user.
         phonetype           The phone type of the user.
     """
-
     def __init__(self, phone):
         self.phone = phone['e164Format']
         self.numbertype= phone['numberType']
@@ -100,7 +97,6 @@ class address:
         timezone            The time zone of the location.
         type                The type of location.
     """
-
     def __init__(self, address):
         self.area = address['area']
         self.city = address['city']
