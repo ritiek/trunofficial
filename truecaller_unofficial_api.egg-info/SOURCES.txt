@@ -1,8 +1,0 @@
-setup.cfg
-setup.py
-truecaller_unofficial_api/__init__.py
-truecaller_unofficial_api/truecaller_unofficial_api.py
-truecaller_unofficial_api.egg-info/PKG-INFO
-truecaller_unofficial_api.egg-info/SOURCES.txt
-truecaller_unofficial_api.egg-info/dependency_links.txt
-truecaller_unofficial_api.egg-info/top_level.txt
