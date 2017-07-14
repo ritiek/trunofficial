@@ -1,7 +1,39 @@
+"""
+Unofficial API to the Truecaller phone number search
+
+https://github.com/ritiek/truecaller-unofficial-api
+
+MIT License
+
+Copyright (c) 2017 Ritiek Malhotra
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+"""
+
 import urllib
 import json
 
 class search:
+    """ Return a new search instance given a phone number.
+
+    """
     def __init__(self, number):
         URL = 'https://search5.truecaller.com/v2/search?'
 
@@ -44,6 +76,7 @@ class search:
         self.sourcestats = parsed['stats']['sourceStats']
 
 class phone:
+    """ Returns information about phone number. """
     def __init__(self, phone):
         self.phone = phone['e164Format']
         self.numbertype= phone['numberType']
@@ -60,6 +93,7 @@ class phone:
         self.phonetype = phone['type']
 
 class address:
+    """ Returns information about location. """
     def __init__(self, address):
         self.area = address['area']
         self.city = address['city']
