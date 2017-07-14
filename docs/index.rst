@@ -1,5 +1,5 @@
-truecaller-unofficial-api Documentation
-=======================================
+truecaller-unofficial-api
+=========================
 
 :Version: v0.1.0
 :Author: Ritiek Malhotra
