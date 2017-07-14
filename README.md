@@ -5,7 +5,7 @@
 ## Installation
 
  ```
- pip install truecaller-unoffical
+ pip install truecaller-unoffical-api
  ```
 
 or if you like to live on the bleeding edge:
@@ -17,7 +17,7 @@ python setup.py install
 ## Usage Examples
 
 ```
-import truecaller_unofficial as tr
+import truecaller_unofficial_api as tr
 
 human = tr.search('<phone number>')
 print(human.name)
