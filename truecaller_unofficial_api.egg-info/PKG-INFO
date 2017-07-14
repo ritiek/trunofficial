@@ -1,0 +1,55 @@
+Metadata-Version: 1.1
+Name: truecaller-unofficial-api
+Version: 0.1.0
+Summary: Unofficial API to the Truecaller phone number search
+Home-page: https://www.github.com/ritiek/truecaller-unofficial-api
+Author: Ritiek Malhotra
+Author-email: ritiekmalhotra123@gmail.com
+License: MIT
+Download-URL: https://github.com/ritiek/truecaller-unofficial-api/archive/v0.1.0.tar.gz
+Description: # truecaller-unofficial-api
+        
+         Unofficial API to the Truecaller phone number search.
+        
+        ## Installation
+        
+         ```
+         pip install truecaller-unoffical-api
+         ```
+        
+        or if you like to live on the bleeding edge:
+        
+        ```
+        python setup.py install
+        ```
+        
+        ## Usage Examples
+        
+        ```
+        import truecaller_unofficial_api as tr
+        
+        human = tr.search('<phone number>')
+        print(human.name)
+        
+        mobile = human.phone
+        print(mobile.phone)
+        print(mobile.countrycode)
+        print(mobile.carrier)
+        
+        house = human.address
+        print(house.city)
+        print(house.timezone)
+        ```
+        
+        For more methods, check out the Documentation.
+        
+        ## Disclaimer
+        
+        This method of accessing Truecaller's database may stop working any day. Use it at your own risk.
+        
+        ## License
+        
+        `The MIT License`
+        
+Keywords: quora,terminal,command-line,question,python
+Platform: UNKNOWN
