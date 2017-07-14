@@ -5,7 +5,7 @@ License
 
 MIT license
 
-for more information, see below:
+For more information, see below:
 
 .. literalinclude:: ../LICENSE
    :language: none
