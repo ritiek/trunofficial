@@ -7,7 +7,6 @@ class search:
 
         raw_params = {
             'q': number,
-            'countryCode': 'IN',
             'type': '4',
             'locAddr': '',
             'placement': 'SEARCHRESULTS,HISTORY,DETAILS',
