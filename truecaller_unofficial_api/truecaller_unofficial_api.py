@@ -2,22 +2,6 @@ import urllib
 import json
 
 class search:
-    """ Return a new search instance given a phone number.
-
-    Attributes:
-        - ``id                  The truecaller id of the user.``
-        - ``name                The name of the owner of the phone number.``
-        - score               The score of the user.
-        - access              The public accessibility state of the user.
-        - enhanced            The enhanced state of the user.
-        - internet_address    The internet address of the user.
-        - badges              The badges owned by the user.
-        - tags                The tags of the user.
-        - sources             The sources available.
-        - provider            The provider of the phone number.
-        - trace               The trace of the user.
-        - sourcestats         The source stats of the user.
-    """
     def __init__(self, number):
         URL = 'https://search5.truecaller.com/v2/search?'
 
@@ -60,18 +44,6 @@ class search:
         self.sourcestats = parsed['stats']['sourceStats']
 
 class phone:
-    """ Returns information about phone number.
-
-    Attributes:
-        - phone               The phone number of the user.
-        - numbertype          The type of phone number.
-        - national            The phone number in national form.
-        - dialcode            The dial code of the country.
-        - carrier             The carrier of the phone number.
-        - spamscore           The spam score of the user.
-        - spamtype            The spam type of the user.
-        - phonetype           The phone type of the user.
-    """
     def __init__(self, phone):
         self.phone = phone['e164Format']
         self.numbertype= phone['numberType']
@@ -88,18 +60,9 @@ class phone:
         self.phonetype = phone['type']
 
 class address:
-    """ Returns information about location.
-
-    Attributes:
-        - area                The area where the phone number resides.
-        - city                The city where the phone number resides.
-        - countrycode         The country code of the location.
-        - timezone            The time zone of the location.
-        - type                The type of location.
-    """
     def __init__(self, address):
         self.area = address['area']
         self.city = address['city']
-        self.countrycode = address['city']
+        self.countrycode = address['countryCode']
         self.timezone = address['timeZone']
         self.type = address['type']
