@@ -45,7 +45,7 @@ Example::
 Trunofficial Attributes
 -----------------------
 
-Once you have created a Pafy object using :func:`trunofficial.search`, several data
+Once you have created a Trunofficial object using :func:`trunofficial.search`, several data
 attributes are available
 
 .. attribute:: Trunofficial.id
