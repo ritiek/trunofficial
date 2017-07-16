@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 import trunofficial
 
 with open("README.rst", "r") as f:
-long_description = f.read()
+    long_description = f.read()
 
 setup(name='trunofficial',
       version=trunofficial.__version__,
