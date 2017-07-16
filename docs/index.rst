@@ -40,7 +40,7 @@ Create a Trunofficial object using the :func:`trunofficial.search` function, giv
 Example::
 
     import trunofficial
-    myvid = trunofficial.search("2024561111")
+    owner = trunofficial.search("2024561111")
 
 Trunofficial Attributes
 ---------------
@@ -180,12 +180,12 @@ An example of accessing Phone attributes::
 
     >>> import trunofficial
     >>> owner = trunofficial.search("2024561111")
-    >>> phone_info = owner.phone
-    >>> phone_info.phone
+    >>> mobile = owner.phone
+    >>> mobile.phone
     u'+912024561111'
-    >>> phone_info.numbertype
+    >>> mobile.numbertype
     u'FIXED_LINE'
-    >>> phone_info.carrier
+    >>> mobile.carrier
     u'BSNL'
 
 
@@ -229,11 +229,11 @@ An example of accessing Address attributes::
 
     >>> import trunofficial
     >>> owner = trunofficial.search("2024561111")
-    >>> address_info = owner.address
-    >>> address_info.area
+    >>> house = owner.address
+    >>> house.area
     u'Pune, Maharashtra'
-    >>> address_info.city
+    >>> house.city
     u'Pune, Maharashtra'
-    >>> address.timezone
+    >>> house.timezone
     u'GMT+05:30'
 
