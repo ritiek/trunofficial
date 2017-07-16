@@ -1,11 +1,11 @@
-# truecaller-unofficial-api
+# trunofficial
 
  Unofficial API to the Truecaller phone number search.
 
 ## Installation
 
  ```
- pip install truecaller-unoffical-api
+ pip install trunofficial
  ```
 
 or if you like to live on the bleeding edge:
@@ -17,12 +17,12 @@ python setup.py install
 ## Usage Examples
 
 ```
-import truecaller_unofficial_api as tr
+import trunofficial
 
-human = tr.search('<phone number>')
-print(human.name)
+owner = trunofficial.search('2024561111')
+print(owner.name)
 
-mobile = human.phone
+mobile = owner.phone
 print(mobile.phone)
 print(mobile.countrycode)
 print(mobile.carrier)
@@ -36,7 +36,7 @@ For more methods, check out the Documentation.
 
 ## Disclaimer
 
-This method of accessing Truecaller's database may stop working any day. Use it at your own risk.
+This method of accessing Truecaller's database may stop working any moment. Use it at your own risk.
 
 ## License
 
