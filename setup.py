@@ -16,6 +16,6 @@ setup(name='trunofficial',
       url='https://www.github.com/ritiek/trunofficial',
       keywords=['truecaller', 'search', 'python', 'unofficial', 'api'],
       license='MIT',
-      download_url='https://github.com/ritiek/trunofficial/archive/v0.1.0.tar.gz',
+      download_url='https://github.com/ritiek/trunofficial/archive/v' + gitfeed.__version__ + '.tar.gz',
       classifiers=[],
      )
