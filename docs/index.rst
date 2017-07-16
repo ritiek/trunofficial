@@ -43,7 +43,7 @@ Example::
     owner = trunofficial.search("2024561111")
 
 Trunofficial Attributes
----------------
+-----------------------
 
 Once you have created a Pafy object using :func:`trunofficial.search`, several data
 attributes are available
@@ -190,7 +190,7 @@ An example of accessing Phone attributes::
 
 
 Address Objects
-=============
+===============
 
 .. class:: trunofficial.Address
 
@@ -200,7 +200,7 @@ can then access the address information by using
 .. attribute:: Trunofficial.addresss
 
 Address Attributes
-----------------
+------------------
 
     An Address object can be used to access the following attributes
 
