@@ -40,7 +40,7 @@ For more methods, check out the Documentation.
 Disclaimer
 ----------
 
-This method of accessing Truecaller’s database may stop working any
+This method of accessing Truecaller's database may stop working any
 moment. Use it at your own risk.
 
 License
@@ -48,8 +48,8 @@ License
 
 ``The MIT License``
 
-.. |pypi.python.org| image:: https://img.shields.io/trunofficial/v/Trunofficial.svg
-   :target: https://pypi.python.org/ritiek/trunofficial
+.. |pypi.python.org| image:: https://img.shields.io/pypi/v/trunofficial.svg
+   :target: https://pypi.org/project/trunofficial/
 .. |readthedocs.org| image:: https://readthedocs.org/projects/trunofficial/badge/?version=latest
    :target: http://trunofficial.readthedocs.io/en/latest/
 .. |build Status| image:: https://travis-ci.org/ritiek/trunofficial.svg?branch=master

@@ -1,6 +1,6 @@
 # trunofficial
 
-[![pypi.python.org](https://img.shields.io/trunofficial/v/Trunofficial.svg)](https://pypi.python.org/ritiek/trunofficial) [![readthedocs.org](https://readthedocs.org/projects/trunofficial/badge/?version=latest)](http://trunofficial.readthedocs.io/en/latest/) [![build Status](https://travis-ci.org/ritiek/trunofficial.svg?branch=master)](https://travis-ci.org/ritiek/trunofficial/)
+[![pypi.python.org](https://img.shields.io/pypi/v/trunofficial.svg)](https://pypi.org/project/trunofficial/) [![readthedocs.org](https://readthedocs.org/projects/trunofficial/badge/?version=latest)](http://trunofficial.readthedocs.io/en/latest/) [![build Status](https://travis-ci.org/ritiek/trunofficial.svg?branch=master)](https://travis-ci.org/ritiek/trunofficial/)
 
  Unofficial API to the Truecaller phone number search.
 
