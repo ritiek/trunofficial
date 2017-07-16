@@ -27,7 +27,7 @@ Usage Examples
     print(owner.name)
 
     mobile = owner.phone
-    print(mobile.phone)
+    print(mobile.number)
     print(mobile.countrycode)
     print(mobile.carrier)
 
@@ -35,7 +35,8 @@ Usage Examples
     print(house.city)
     print(house.timezone)
 
-For more methods, check out the Documentation.
+For more methods, check out the
+`Documentation <http://trunofficial.readthedocs.io/en/latest/>`__.
 
 Disclaimer
 ----------

@@ -140,7 +140,7 @@ Phone Attributes
     A Phone object can be used to access the following attributes
 
 
-.. attribute:: Phone.phone
+.. attribute:: Phone.number
 
     The phone number of the owner formatted in e164 format
 
@@ -180,7 +180,7 @@ An example of accessing Phone attributes::
 
     >>> import trunofficial
     >>> owner = trunofficial.search("2024561111")
-    >>> mobile = owner.phone
+    >>> mobile = owner.number
     >>> mobile.phone
     u'+912024561111'
     >>> mobile.numbertype

@@ -25,7 +25,7 @@ owner = trunofficial.search('2024561111')
 print(owner.name)
 
 mobile = owner.phone
-print(mobile.phone)
+print(mobile.number)
 print(mobile.countrycode)
 print(mobile.carrier)
 
@@ -34,7 +34,7 @@ print(house.city)
 print(house.timezone)
 ```
 
-For more methods, check out the Documentation.
+For more methods, check out the [Documentation](http://trunofficial.readthedocs.io/en/latest/).
 
 ## Disclaimer
 

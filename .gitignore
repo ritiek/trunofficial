@@ -1,5 +1,5 @@
 *.pyc
-truecaller_unofficial_api.egg-info/
+trunofficial.egg-info/
 build/
 dist/
 docs/_build/

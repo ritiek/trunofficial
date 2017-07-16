@@ -44,7 +44,7 @@ class search:
 
 class phone:
     def __init__(self, phone):
-        self.phone = phone['e164Format']
+        self.number = phone['e164Format']
         self.numbertype= phone['numberType']
         self.national = phone['nationalFormat']
         self.dialcode = phone['dialingCode']
