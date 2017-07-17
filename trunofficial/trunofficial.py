@@ -1,7 +1,8 @@
-import urllib
 try:
+    from urllib import urlopen
     from urllib import urlencode
 except ImportError:
+    from urllib.request import urlopen
     from urllib.parse import urlencode
 import json
 
@@ -22,7 +23,7 @@ class search:
 
         params = urlencode(raw_params)
         url_params = URL + params
-        response = urllib.urlopen(url_params).read()
+        response = urlopen(url_params).read()
         parsed = json.loads(response)
 
         basic = parsed['data'][0]
