@@ -24,6 +24,7 @@ class search:
         params = urlencode(raw_params)
         url_params = URL + params
         response = urlopen(url_params).read()
+        response = response.decode('utf-8')
         parsed = json.loads(response)
 
         basic = parsed['data'][0]
