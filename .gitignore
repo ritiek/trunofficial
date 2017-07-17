@@ -3,3 +3,5 @@ trunofficial.egg-info/
 build/
 dist/
 docs/_build/
+__pycache__/
+.cache/

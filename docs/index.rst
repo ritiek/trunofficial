@@ -180,8 +180,8 @@ An example of accessing Phone attributes::
 
     >>> import trunofficial
     >>> owner = trunofficial.search("2024561111")
-    >>> mobile = owner.number
-    >>> mobile.phone
+    >>> mobile = owner.phone
+    >>> mobile.number
     u'+912024561111'
     >>> mobile.numbertype
     u'FIXED_LINE'
@@ -236,4 +236,3 @@ An example of accessing Address attributes::
     u'Pune, Maharashtra'
     >>> house.timezone
     u'GMT+05:30'
-
