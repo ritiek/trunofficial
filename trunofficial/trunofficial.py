@@ -1,4 +1,8 @@
 import urllib
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
 import json
 
 class search:
@@ -16,7 +20,7 @@ class search:
             'encoding': 'json',
         }
 
-        params = urllib.urlencode(raw_params)
+        params = urlencode(raw_params)
         url_params = URL + params
         response = urllib.urlopen(url_params).read()
         parsed = json.loads(response)
