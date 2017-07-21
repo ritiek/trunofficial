@@ -47,8 +47,8 @@ class search:
             self.tags = basic['tags']
             self.sources = basic['sources']
 
-            self.phone = phone(phone_parsed)
-            self.address = address(address_parsed)
+            self.phone = _phone(phone_parsed)
+            self.address = _address(address_parsed)
 
             self.provider = parsed['provider']
             self.trace = parsed['trace']
@@ -58,7 +58,7 @@ class search:
             raise TruecallerError("Cannot find the number in Truecaller database.")
 
 
-class phone:
+class _phone:
     def __init__(self, phone):
         self.number = phone['e164Format']
         self.numbertype= phone['numberType']
@@ -74,7 +74,7 @@ class phone:
             self.spamtype = None
         self.phonetype = phone['type']
 
-class address:
+class _address:
     def __init__(self, address):
         self.area = address['area']
         self.city = address['city']
