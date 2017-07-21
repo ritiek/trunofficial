@@ -36,6 +36,12 @@ print(house.timezone)
 
 For more methods, check out the [Documentation](http://trunofficial.readthedocs.io/en/latest/).
 
+## Running Tests
+
+```
+python -m pytest test
+```
+
 ## Disclaimer
 
 This method of accessing Truecaller's database may stop working any moment. Use it at your own risk.
