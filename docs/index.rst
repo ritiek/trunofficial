@@ -26,10 +26,10 @@ phone-specific data such as *phone number*, *number type*, *country code* and *d
 Creating Truonfficial Objects
 =============================
 
-Create a Trunofficial object using the :func:`trunofficial.search` function, giving a phone number as the argument.
+Create a Trunofficial object or a list of Trunofficial objects using the :func:`trunofficial.search` function, giving a phone number as the argument.
 
 
-.. function:: trunofficial.search(number)
+.. function:: trunofficial.search(numbers)
 
 
     Creates a new Trunofficial object.
@@ -42,6 +42,15 @@ Example::
     import trunofficial
     owner = trunofficial.search("2024561111")
 
+You can also search for multiple phone numbers at once and create a list of Trunofficial objects.
+
+Example::
+
+    import trunofficial
+    owners = trunofficial.search("2024561111", "2067093100")
+    first_owner = owners[0]
+    second_owner = owners[1]
+
 Trunofficial Attributes
 -----------------------
 
@@ -52,9 +61,9 @@ attributes are available
 
     The id of the owner (*str*)
 
-.. attribute:: Trunofficial.name (*str*)
+.. attribute:: Trunofficial.name
 
-    The name of the owner
+    The name of the owner (*str*)
 
 .. attribute:: Trunofficial.score
 

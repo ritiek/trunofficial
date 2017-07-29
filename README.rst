@@ -35,8 +35,16 @@ Usage Examples
     print(house.city)
     print(house.timezone)
 
-For more methods, check out the
+For more examples, check the `examples directory <examples>`__ or read
+the full
 `Documentation <http://trunofficial.readthedocs.io/en/latest/>`__.
+
+Running Tests
+-------------
+
+::
+
+    python -m pytest test
 
 Disclaimer
 ----------
