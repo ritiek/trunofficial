@@ -8,7 +8,9 @@ Unofficial API to the Truecaller phone number search.
 Installation
 ------------
 
-``pip install trunofficial``
+::
+
+    pip install trunofficial
 
 or if you like to live on the bleeding edge:
 
