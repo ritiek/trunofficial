@@ -1,6 +1,7 @@
 import trunofficial
 
 owner = trunofficial.search('2024561111')
+owner2 = trunofficial.search('')
 
 def test_basic():
     assert owner.id == 'uLByRJydv5fh+1nHPzemqg=='
