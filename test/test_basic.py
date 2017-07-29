@@ -1,7 +1,7 @@
 import trunofficial
 
 owner = trunofficial.search('2024561111')
-owner2 = trunofficial.search('')
+owners = trunofficial.search('2067093100', '2024561111')
 
 def test_basic():
     assert owner.id == 'uLByRJydv5fh+1nHPzemqg=='
@@ -25,3 +25,6 @@ def test_address():
     assert house.area == 'Pune, Maharashtra'
     assert house.city == 'Pune, Maharashtra'
     assert house.timezone == 'GMT+05:30'
+
+def test_multiple():
+    assert owner.name == owners[1].name
