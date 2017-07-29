@@ -9,7 +9,7 @@ import json
 
 class TruecallerError(Exception):
     def __init__(self, message=None):
-        super().__init__(message)
+        super(TruecallerError, self).__init__(message)
 
 
 def search(*numbers):
@@ -67,7 +67,7 @@ class _MainSearch:
             self.sourcestats = parsed['stats']['sourceStats']
 
         except KeyError:
-            raise TruecallerError("Cannot find the number in Truecaller database.")
+            raise TruecallerError("Cannot find the number in Truecaller database, " + str(number) + '.')
 
 
 class _Phone:
