@@ -45,6 +45,13 @@ class _MainSearch:
         parsed = json.loads(response)
 
         try:
+            response_code = parsed['code']
+            response_message = parsed['message']
+            raise TruecallerError("Recieved error response: (" + str(response_code) + ") " + response_message + ".")
+        except KeyError:
+            pass
+
+        try:
             basic = parsed['data'][0]
             phone_parsed = parsed['data'][0]['phones'][0]
             address_parsed = parsed['data'][0]['addresses'][0]
