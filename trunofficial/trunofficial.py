@@ -88,8 +88,12 @@ class _Phone:
 
 class _Address:
     def __init__(self, address):
-        self.area = address['area']
-        self.city = address['city']
+        try:
+            self.area = address['area']
+            self.city = address['city']
+        except KeyError:
+            self.area = None
+            self.city = None
         self.countrycode = address['countryCode']
         self.timezone = address['timeZone']
         self.type = address['type']
