@@ -22,6 +22,7 @@ Command-line Usage
 ------------------
 
 ::
+
     usage: trunofficial [-h] [NUMBER [NUMBER ...]]
 
     Unofficial API to the Truecaller phone number search.
@@ -35,6 +36,7 @@ Command-line Usage
 Example:
 
 ::
+
     trunofficial 2024561111
 
 Library Usage
