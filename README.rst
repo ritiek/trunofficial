@@ -37,7 +37,7 @@ Example:
 
 ::
 
-    trunofficial 2024561111
+    $ trunofficial 2024561111
 
 Library Usage
 -------------
