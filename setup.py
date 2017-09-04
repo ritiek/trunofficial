@@ -13,6 +13,11 @@ setup(name='trunofficial',
       author='Ritiek Malhotra',
       author_email='ritiekmalhotra123@gmail.com',
       packages = find_packages(),
+      entry_points={
+            'console_scripts': [
+                  'trunofficial = trunofficial.trunofficial:command_line',
+            ]
+      },
       url='https://www.github.com/ritiek/trunofficial',
       keywords=['truecaller', 'search', 'python', 'unofficial', 'api'],
       license='MIT',

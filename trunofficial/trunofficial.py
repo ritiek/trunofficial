@@ -1,10 +1,14 @@
+#!/usr/bin/env python
+
 try:
     from urllib import urlopen
     from urllib import urlencode
 except ImportError:
     from urllib.request import urlopen
     from urllib.parse import urlencode
+
 import json
+import argparse
 
 
 class TruecallerError(Exception):
@@ -16,40 +20,97 @@ def search(*numbers):
     if len(numbers) > 1:
         results = []
         for number in numbers:
-            result = _MainSearch(number)
+            response = lookup(number)
+            result = _Attributes(response)
             results.append(result)
         return results
     else:
-        return _MainSearch(numbers[0])
+        response = lookup(numbers)
+        return _Attributes(response)
 
 
-class _MainSearch:
-    def __init__(self, number):
-        URL = 'https://search5.truecaller.com/v2/search?'
+def lookup(number):
+    URL = 'https://search5.truecaller.com/v2/search?'
 
-        raw_params = {
-            'q': number,
-            'type': '4',
-            'locAddr': '',
-            'placement': 'SEARCHRESULTS,HISTORY,DETAILS',
-            'clientId': '1',
-            'myNumber': 'lS5757de85c2804a87d452c139OpYeO6gR6qlj0QFJJQMpo1',
-            'registerId': '568140610',
-            'encoding': 'json',
-        }
+    raw_params = {
+        'q': number,
+        'type': '4',
+        'locAddr': '',
+        'placement': 'SEARCHRESULTS,HISTORY,DETAILS',
+        'clientId': '1',
+        'myNumber': 'lS5757de85c2804a87d452c139OpYeO6gR6qlj0QFJJQMpo1',
+        'registerId': '568140610',
+        'encoding': 'json',
+    }
 
-        params = urlencode(raw_params)
-        url_params = URL + params
-        response = urlopen(url_params).read()
-        response = response.decode('utf-8')
-        parsed = json.loads(response)
+    params = urlencode(raw_params)
+    url_params = URL + params
+    response = urlopen(url_params).read()
+    response = response.decode('utf-8')
+    parsed = json.loads(response)
 
-        try:
-            response_code = parsed['code']
-            response_message = parsed['message']
-            raise TruecallerError("Recieved error response: (" + str(response_code) + ") " + response_message + ".")
-        except KeyError:
-            pass
+    try:
+        response_code = parsed['code']
+        response_message = parsed['message']
+        raise TruecallerError("Recieved error response: (" + str(response_code) + ") " + response_message + ".")
+    except KeyError:
+        pass
+
+    return parsed
+
+
+def get_arguments():
+    parser = argparse.ArgumentParser(
+        description='Unofficial API to the Truecaller phone number search.')
+
+    parser.add_argument(
+        'numbers',
+        metavar='NUMBER',
+        type=str,
+        nargs='*',
+        help='phone numbers to lookup on Truecaller')
+
+    return parser
+
+
+def command_line():
+    parser = get_arguments()
+    args = parser.parse_args()
+    numbers = args.numbers
+
+    if not args.numbers:
+        parser.print_help()
+        exit()
+
+    for number in numbers:
+        owner = search(number)
+        mobile = owner.phone
+        house = owner.address
+
+        print('')
+        print('Owner Name    : ' + str(owner.name))
+        print('Mobile Number : ' + str(mobile.number))
+        print('Country Code  : ' + str(mobile.countrycode))
+        print('City          : ' + str(house.city))
+        print('Area          : ' + str(house.area))
+        print('Mobile Carrier: ' + str(mobile.carrier))
+        print('TimeZone      : ' + str(house.timezone))
+        print('Score         : ' + str(owner.score))
+        print('Spam Score    : ' + str(mobile.spamscore))
+        print('Spam Type     : ' + str(mobile.spamtype))
+        print('Phone Type    : ' + str(mobile.phonetype))
+        print('Owner ID      : ' + str(owner.id))
+        print('Access        : ' + str(owner.access))
+        print('Enhanced      : ' + str(owner.enhanced))
+        print('Internet Addr.: ' + str(owner.internet_address))
+        print('Badges        : ' + str(owner.badges))
+        print('Tags          : ' + str(owner.tags))
+        print('Owner Sources : ' + str(owner.sources))
+        print('')
+
+
+class _Attributes:
+    def __init__(self, parsed):
 
         try:
             basic = parsed['data'][0]
@@ -92,6 +153,7 @@ class _Phone:
             self.spamscore = None
             self.spamtype = None
         self.phonetype = phone['type']
+
 
 class _Address:
     def __init__(self, address):

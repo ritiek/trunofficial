@@ -18,8 +18,27 @@ or if you like to live on the bleeding edge:
 
     python setup.py install
 
-Usage Examples
---------------
+Command-line Usage
+------------------
+
+::
+    usage: trunofficial [-h] [NUMBER [NUMBER ...]]
+
+    Unofficial API to the Truecaller phone number search.
+
+    positional arguments:
+      NUMBER      phone numbers to lookup on Truecaller
+
+    optional arguments:
+      -h, --help  show this help message and exit
+
+Example:
+
+::
+    trunofficial 2024561111
+
+Library Usage
+-------------
 
 ::
 
