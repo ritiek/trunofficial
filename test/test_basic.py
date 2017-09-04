@@ -10,7 +10,7 @@ def test_basic():
     assert owner.enhanced == True
     assert owner.internet_address == []
     assert owner.badges == []
-    assert owner.tags == ['3', '51']
+    assert owner.tags == ['3', '41']
     assert owner.sources == []
 
 def test_phone():
