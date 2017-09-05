@@ -53,10 +53,7 @@ def lookup(number):
     try:
         response_code = parsed['code']
         response_message = parsed['message']
-        if is_python3:
-            raise_from(TruecallerError("Recieved error response: (" + str(response_code) + ") " + response_message + "."), None)
-        else:
-            raise TruecallerError("Recieved error response: (" + str(response_code) + ") " + response_message + ".")
+        six.raise_from(TruecallerError("Recieved error response: (" + str(response_code) + ") " + response_message + "."), None)
     except KeyError:
         pass
 
