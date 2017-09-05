@@ -8,6 +8,7 @@ except ImportError:
     from urllib.parse import urlencode
 
 import json
+import six
 import argparse
 
 
@@ -52,7 +53,10 @@ def lookup(number):
     try:
         response_code = parsed['code']
         response_message = parsed['message']
-        raise TruecallerError("Recieved error response: (" + str(response_code) + ") " + response_message + ".")
+        if is_python3:
+            raise_from(TruecallerError("Recieved error response: (" + str(response_code) + ") " + response_message + "."), None)
+        else:
+            raise TruecallerError("Recieved error response: (" + str(response_code) + ") " + response_message + ".")
     except KeyError:
         pass
 
@@ -83,30 +87,32 @@ def command_line():
         exit()
 
     for number in numbers:
-        owner = search(number)
-        mobile = owner.phone
-        house = owner.address
-
-        print('')
-        print('Owner Name    : ' + str(owner.name))
-        print('Mobile Number : ' + str(mobile.number))
-        print('Country Code  : ' + str(mobile.countrycode))
-        print('City          : ' + str(house.city))
-        print('Area          : ' + str(house.area))
-        print('Mobile Carrier: ' + str(mobile.carrier))
-        print('TimeZone      : ' + str(house.timezone))
-        print('Score         : ' + str(owner.score))
-        print('Spam Score    : ' + str(mobile.spamscore))
-        print('Spam Type     : ' + str(mobile.spamtype))
-        print('Phone Type    : ' + str(mobile.phonetype))
-        print('Owner ID      : ' + str(owner.id))
-        print('Access        : ' + str(owner.access))
-        print('Enhanced      : ' + str(owner.enhanced))
-        print('Internet Addr.: ' + str(owner.internet_address))
-        print('Badges        : ' + str(owner.badges))
-        print('Tags          : ' + str(owner.tags))
-        print('Owner Sources : ' + str(owner.sources))
-        print('')
+        try:
+            owner = search(number)
+            mobile = owner.phone
+            house = owner.address
+            print('')
+            print('Owner Name    : ' + str(owner.name))
+            print('Mobile Number : ' + str(mobile.number))
+            print('Country Code  : ' + str(mobile.countrycode))
+            print('City          : ' + str(house.city))
+            print('Area          : ' + str(house.area))
+            print('Mobile Carrier: ' + str(mobile.carrier))
+            print('TimeZone      : ' + str(house.timezone))
+            print('Score         : ' + str(owner.score))
+            print('Spam Score    : ' + str(mobile.spamscore))
+            print('Spam Type     : ' + str(mobile.spamtype))
+            print('Phone Type    : ' + str(mobile.phonetype))
+            print('Owner ID      : ' + str(owner.id))
+            print('Access        : ' + str(owner.access))
+            print('Enhanced      : ' + str(owner.enhanced))
+            print('Internet Addr.: ' + str(owner.internet_address))
+            print('Badges        : ' + str(owner.badges))
+            print('Tags          : ' + str(owner.tags))
+            print('Owner Sources : ' + str(owner.sources))
+            print('')
+        except TruecallerError:
+            print('Phone number not found: ' + str(number))
 
 
 class _Attributes:
@@ -116,6 +122,9 @@ class _Attributes:
             basic = parsed['data'][0]
             phone_parsed = parsed['data'][0]['phones'][0]
             address_parsed = parsed['data'][0]['addresses'][0]
+
+            self.phone = _Phone(phone_parsed)
+            self.address = _Address(address_parsed)
 
             self.id = basic['id']
             self.name = basic['name']
@@ -127,15 +136,12 @@ class _Attributes:
             self.tags = basic['tags']
             self.sources = basic['sources']
 
-            self.phone = _Phone(phone_parsed)
-            self.address = _Address(address_parsed)
-
             self.provider = parsed['provider']
             self.trace = parsed['trace']
             self.sourcestats = parsed['stats']['sourceStats']
 
-        except KeyError:
-            raise TruecallerError("Cannot find the number in Truecaller database, " + str(number) + '.')
+        except:
+            six.raise_from(TruecallerError("Cannot find the number in Truecaller database, " + str(self.phone.number) + '.'), None)
 
 
 class _Phone:
@@ -160,9 +166,10 @@ class _Address:
         try:
             self.area = address['area']
             self.city = address['city']
+            self.timezone = address['timeZone']
         except KeyError:
             self.area = None
             self.city = None
+            self.timezone = None
         self.countrycode = address['countryCode']
-        self.timezone = address['timeZone']
         self.type = address['type']
