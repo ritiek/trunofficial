@@ -23,15 +23,17 @@ Command-line Usage
 
 ::
 
-    usage: trunofficial [-h] [NUMBER [NUMBER ...]]
+    usage: trunofficial [-h] [-c COUNTRYCODE] [NUMBER [NUMBER ...]]
 
     Unofficial API to the Truecaller phone number search.
 
     positional arguments:
-      NUMBER      phone numbers to lookup on Truecaller
+      NUMBER                phone numbers to lookup on Truecaller
 
     optional arguments:
-      -h, --help  show this help message and exit
+      -h, --help            show this help message and exit
+      -c COUNTRYCODE, --countrycode COUNTRYCODE
+                            prioritize search by country
 
 Example:
 
