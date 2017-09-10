@@ -17,24 +17,32 @@ class TruecallerError(Exception):
         super(TruecallerError, self).__init__(message)
 
 
-def search(*numbers):
+def search(*numbers, **kwargs):
+    if 'cc' in kwargs:
+        cc = kwargs['cc']
+    else:
+        cc = home_country()
+
     if len(numbers) > 1:
         results = []
         for number in numbers:
-            response = lookup(number)
+            response = lookup(number, cc)
             result = _Attributes(response)
             results.append(result)
-        return results
     else:
-        response = lookup(numbers)
-        return _Attributes(response)
+        number = numbers[0]
+        response = lookup(number, cc)
+        results = _Attributes(response)
+
+    return results
 
 
-def lookup(number):
+def lookup(number, cc):
     URL = 'https://search5.truecaller.com/v2/search?'
 
     raw_params = {
         'q': number,
+        'countryCode': cc,
         'type': '4',
         'locAddr': '',
         'placement': 'SEARCHRESULTS,HISTORY,DETAILS',
@@ -43,6 +51,8 @@ def lookup(number):
         'registerId': '568140610',
         'encoding': 'json',
     }
+
+    print(raw_params)
 
     params = urlencode(raw_params)
     url_params = URL + params
@@ -71,7 +81,22 @@ def get_arguments():
         nargs='*',
         help='phone numbers to lookup on Truecaller')
 
+    parser.add_argument(
+        '-c',
+        '--countrycode',
+        type=str,
+        default=None,
+        help='prioritize search by country')
+
     return parser
+
+
+def home_country():
+    ipinfo = 'https://ipinfo.io/country'
+    cc = urlopen(ipinfo).read()
+    cc = cc.decode('utf-8')
+    cc = cc.rstrip('\n')
+    return cc
 
 
 def command_line():
@@ -83,9 +108,11 @@ def command_line():
         parser.print_help()
         exit()
 
+    cc = args.countrycode
+
     for number in numbers:
         try:
-            owner = search(number)
+            owner = search(number, cc=cc)
             mobile = owner.phone
             house = owner.address
             print('')
@@ -143,12 +170,18 @@ class _Attributes:
 
 class _Phone:
     def __init__(self, phone):
-        self.number = phone['e164Format']
-        self.numbertype= phone['numberType']
         self.national = phone['nationalFormat']
         self.dialcode = phone['dialingCode']
         self.countrycode = phone['countryCode']
         self.carrier = phone['carrier']
+        try:
+            self.numbertype = phone['numberType']
+        except KeyError:
+            self.numbertype = None
+        try:
+            self.number = phone['e164Format']
+        except KeyError:
+            self.number = None
         try:
             self.spamscore = phone['spamScore']
             self.spamtype = phone['spamType']
