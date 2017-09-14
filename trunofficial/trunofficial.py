@@ -52,8 +52,6 @@ def lookup(number, cc):
         'encoding': 'json',
     }
 
-    print(raw_params)
-
     params = urlencode(raw_params)
     url_params = URL + params
     response = urlopen(url_params).read()
